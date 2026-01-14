@@ -68,57 +68,242 @@
 				background: rgba(255, 255, 255, 0.2);
 			}
 
+			/* Animations */
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(50px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@keyframes float {
+				0%,
+				100% {
+					transform: translateY(0) rotate(0deg);
+				}
+				50% {
+					transform: translateY(-10px) rotate(5deg);
+				}
+			}
+
+			@keyframes shimmer {
+				0% {
+					background-position: -200% 0;
+				}
+				100% {
+					background-position: 200% 0;
+				}
+			}
+
+			@keyframes pulse {
+				0%,
+				100% {
+					box-shadow: 0 5px 30px rgba(74, 124, 89, 0.2);
+				}
+				50% {
+					box-shadow: 0 5px 40px rgba(74, 124, 89, 0.4);
+				}
+			}
+
 			/* Mission Block */
 			.mission {
-				padding: 80px 20px;
-				background: #f5f5f0;
+				padding: 100px 20px;
+				background: linear-gradient(180deg, #f8f9f5 0%, #e8efe5 100%);
+				position: relative;
+				overflow: hidden;
+			}
+
+			.mission::before {
+				content: '🦫';
+				position: absolute;
+				font-size: 300px;
+				opacity: 0.03;
+				top: -50px;
+				right: -50px;
+				transform: rotate(-15deg);
 			}
 
 			.mission-container {
 				max-width: 1200px;
 				margin: 0 auto;
+				position: relative;
+				z-index: 1;
+			}
+
+			.mission-header {
+				text-align: center;
+				margin-bottom: 70px;
+			}
+
+			.mission-subtitle {
+				color: #4a7c59;
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+				margin-bottom: 15px;
+				font-weight: 600;
 			}
 
 			.mission-title {
 				text-align: center;
-				font-size: 2.5rem;
-				color: #333;
-				margin-bottom: 50px;
+				font-size: 3rem;
+				color: #2d3a2e;
+				margin-bottom: 20px;
+				position: relative;
+				display: inline-block;
+			}
+
+			.mission-title::after {
+				content: '';
+				position: absolute;
+				bottom: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 80px;
+				height: 4px;
+				background: linear-gradient(90deg, #4a7c59, #8b4513);
+				border-radius: 2px;
+			}
+
+			.mission-description {
+				color: #666;
+				font-size: 1.2rem;
+				max-width: 600px;
+				margin: 30px auto 0;
+				line-height: 1.8;
 			}
 
 			.mission-cards {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 30px;
+				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+				gap: 40px;
 			}
 
 			.mission-card {
 				background: white;
-				border-radius: 15px;
-				padding: 40px 30px;
+				border-radius: 24px;
+				padding: 50px 35px;
 				text-align: center;
-				box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-				transition: transform 0.3s;
+				box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				position: relative;
+				overflow: hidden;
+				border: 1px solid rgba(74, 124, 89, 0.1);
+			}
+
+			.mission-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 5px;
+				background: linear-gradient(90deg, #4a7c59, #6b9b7a, #8b4513);
+				background-size: 200% 100%;
+				animation: shimmer 3s linear infinite;
 			}
 
 			.mission-card:hover {
-				transform: translateY(-10px);
+				transform: translateY(-15px) scale(1.02);
+				box-shadow: 0 20px 50px rgba(74, 124, 89, 0.2);
+			}
+
+			.mission-card:nth-child(1) {
+				animation: fadeInUp 0.8s ease-out 0.1s backwards;
+			}
+			.mission-card:nth-child(2) {
+				animation: fadeInUp 0.8s ease-out 0.3s backwards;
+			}
+			.mission-card:nth-child(3) {
+				animation: fadeInUp 0.8s ease-out 0.5s backwards;
+			}
+
+			.mission-icon-wrapper {
+				width: 100px;
+				height: 100px;
+				margin: 0 auto 25px;
+				background: linear-gradient(
+					135deg,
+					rgba(74, 124, 89, 0.1),
+					rgba(139, 69, 19, 0.1)
+				);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: all 0.4s ease;
+			}
+
+			.mission-card:hover .mission-icon-wrapper {
+				background: linear-gradient(
+					135deg,
+					rgba(74, 124, 89, 0.2),
+					rgba(139, 69, 19, 0.2)
+				);
+				animation: pulse 2s ease-in-out infinite;
 			}
 
 			.mission-icon {
 				font-size: 50px;
-				margin-bottom: 20px;
+				transition: transform 0.4s ease;
+			}
+
+			.mission-card:hover .mission-icon {
+				animation: float 2s ease-in-out infinite;
 			}
 
 			.mission-card h3 {
-				font-size: 1.5rem;
-				color: #4a7c59;
-				margin-bottom: 15px;
+				font-size: 1.6rem;
+				color: #2d3a2e;
+				margin-bottom: 18px;
+				font-weight: 700;
 			}
 
 			.mission-card p {
+				color: #5a6b5c;
+				line-height: 1.8;
+				font-size: 1.05rem;
+			}
+
+			.mission-card-number {
+				position: absolute;
+				top: 20px;
+				right: 25px;
+				font-size: 4rem;
+				font-weight: 800;
+				color: rgba(74, 124, 89, 0.08);
+				line-height: 1;
+			}
+
+			.mission-stats {
+				display: flex;
+				justify-content: center;
+				gap: 60px;
+				margin-top: 70px;
+				flex-wrap: wrap;
+			}
+
+			.stat-item {
+				text-align: center;
+			}
+
+			.stat-number {
+				font-size: 3rem;
+				font-weight: 800;
+				color: #4a7c59;
+				line-height: 1;
+				margin-bottom: 10px;
+			}
+
+			.stat-label {
 				color: #666;
-				line-height: 1.7;
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 1px;
 			}
 		</style>
 	</head>
@@ -142,10 +327,20 @@
 
 		<section class="mission">
 			<div class="mission-container">
-				<h2 class="mission-title">Наша миссия</h2>
+				<div class="mission-header">
+					<p class="mission-subtitle">Что мы делаем</p>
+					<h2 class="mission-title">Наша миссия</h2>
+					<p class="mission-description">
+						Мы посвятили себя защите и сохранению популяции бобров — невероятных
+						архитекторов дикой природы
+					</p>
+				</div>
 				<div class="mission-cards">
 					<div class="mission-card">
-						<div class="mission-icon">🌍</div>
+						<span class="mission-card-number">01</span>
+						<div class="mission-icon-wrapper">
+							<div class="mission-icon">🌍</div>
+						</div>
 						<h3>Сохранение среды обитания</h3>
 						<p>
 							Мы защищаем водоёмы и леса, где живут бобры, от загрязнения и
@@ -153,7 +348,10 @@
 						</p>
 					</div>
 					<div class="mission-card">
-						<div class="mission-icon">🏥</div>
+						<span class="mission-card-number">02</span>
+						<div class="mission-icon-wrapper">
+							<div class="mission-icon">🏥</div>
+						</div>
 						<h3>Реабилитация животных</h3>
 						<p>
 							Наши центры помогают раненым и осиротевшим бобрам восстановиться и
@@ -161,12 +359,29 @@
 						</p>
 					</div>
 					<div class="mission-card">
-						<div class="mission-icon">📚</div>
+						<span class="mission-card-number">03</span>
+						<div class="mission-icon-wrapper">
+							<div class="mission-icon">📚</div>
+						</div>
 						<h3>Просвещение</h3>
 						<p>
 							Мы рассказываем людям о важной роли бобров в экосистеме и учим
 							бережному отношению к природе.
 						</p>
+					</div>
+				</div>
+				<div class="mission-stats">
+					<div class="stat-item">
+						<div class="stat-number">500+</div>
+						<div class="stat-label">Спасённых бобров</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">25</div>
+						<div class="stat-label">Лет работы</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">12</div>
+						<div class="stat-label">Регионов</div>
 					</div>
 				</div>
 			</div>
