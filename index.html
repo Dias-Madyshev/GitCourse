@@ -67,6 +67,59 @@
 			nav a:hover {
 				background: rgba(255, 255, 255, 0.2);
 			}
+
+			/* Mission Block */
+			.mission {
+				padding: 80px 20px;
+				background: #f5f5f0;
+			}
+
+			.mission-container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			.mission-title {
+				text-align: center;
+				font-size: 2.5rem;
+				color: #333;
+				margin-bottom: 50px;
+			}
+
+			.mission-cards {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 30px;
+			}
+
+			.mission-card {
+				background: white;
+				border-radius: 15px;
+				padding: 40px 30px;
+				text-align: center;
+				box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s;
+			}
+
+			.mission-card:hover {
+				transform: translateY(-10px);
+			}
+
+			.mission-icon {
+				font-size: 50px;
+				margin-bottom: 20px;
+			}
+
+			.mission-card h3 {
+				font-size: 1.5rem;
+				color: #4a7c59;
+				margin-bottom: 15px;
+			}
+
+			.mission-card p {
+				color: #666;
+				line-height: 1.7;
+			}
 		</style>
 	</head>
 	<body>
@@ -80,11 +133,43 @@
 					<ul>
 						<li><a href="#">Главная</a></li>
 						<li><a href="#">О бобрах</a></li>
-						
+
 						<li><a href="#">Контакты</a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
+
+		<section class="mission">
+			<div class="mission-container">
+				<h2 class="mission-title">Наша миссия</h2>
+				<div class="mission-cards">
+					<div class="mission-card">
+						<div class="mission-icon">🌍</div>
+						<h3>Сохранение среды обитания</h3>
+						<p>
+							Мы защищаем водоёмы и леса, где живут бобры, от загрязнения и
+							разрушения человеком.
+						</p>
+					</div>
+					<div class="mission-card">
+						<div class="mission-icon">🏥</div>
+						<h3>Реабилитация животных</h3>
+						<p>
+							Наши центры помогают раненым и осиротевшим бобрам восстановиться и
+							вернуться в дикую природу.
+						</p>
+					</div>
+					<div class="mission-card">
+						<div class="mission-icon">📚</div>
+						<h3>Просвещение</h3>
+						<p>
+							Мы рассказываем людям о важной роли бобров в экосистеме и учим
+							бережному отношению к природе.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 	</body>
 </html>
