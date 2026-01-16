@@ -744,6 +744,71 @@
 				color: #8bc99a;
 				transform: translateX(5px);
 			}
+
+			/* Footer Bottom */
+			.footer-bottom {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding-top: 40px;
+				flex-wrap: wrap;
+				gap: 20px;
+			}
+
+			.footer-copyright {
+				color: rgba(255, 255, 255, 0.5);
+				font-size: 0.95rem;
+			}
+
+			.footer-copyright a {
+				color: #8bc99a;
+				text-decoration: none;
+				transition: color 0.3s ease;
+			}
+
+			.footer-copyright a:hover {
+				color: white;
+			}
+
+			.footer-links {
+				display: flex;
+				gap: 30px;
+			}
+
+			.footer-links a {
+				color: rgba(255, 255, 255, 0.5);
+				text-decoration: none;
+				font-size: 0.95rem;
+				transition: all 0.3s ease;
+			}
+
+			.footer-links a:hover {
+				color: #8bc99a;
+			}
+
+			.back-to-top {
+				position: fixed;
+				bottom: 30px;
+				right: 30px;
+				width: 50px;
+				height: 50px;
+				background: linear-gradient(135deg, #4a7c59, #3d6b4a);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
+				font-size: 24px;
+				box-shadow: 0 4px 20px rgba(74, 124, 89, 0.4);
+				transition: all 0.3s ease;
+				opacity: 0.9;
+			}
+
+			.back-to-top:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 30px rgba(74, 124, 89, 0.6);
+				opacity: 1;
+			}
 		</style>
 	</head>
 	<body>
@@ -960,7 +1025,26 @@
 						</ul>
 					</div>
 				</div>
+				<div class="footer-bottom">
+					<p class="footer-copyright">
+						© 2026
+						<a href="#">Спасём бобров!</a>
+						Все права защищены. Сделано с 🤎 к природе.
+					</p>
+					<div class="footer-links">
+						<a href="#">Политика конфиденциальности</a>
+						<a href="#">Условия использования</a>
+						<a href="#">Пожертвования</a>
+					</div>
+				</div>
 			</div>
 		</footer>
+
+		<a
+			href="#"
+			class="back-to-top"
+		>
+			⬆️
+		</a>
 	</body>
 </html>
