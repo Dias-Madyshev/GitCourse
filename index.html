@@ -109,6 +109,198 @@
 				}
 			}
 
+			@keyframes fadeInDown {
+				from {
+					opacity: 0;
+					transform: translateY(-40px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@keyframes gradientMove {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+
+			@keyframes scrollDown {
+				0%,
+				100% {
+					top: 8px;
+					opacity: 1;
+				}
+				50% {
+					top: 30px;
+					opacity: 0.3;
+				}
+			}
+
+			/* Hero Section */
+			.hero {
+				background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+					url('https://images.unsplash.com/photo-1579168730073-01c458d0b8b7?w=1920')
+						center/cover;
+				min-height: 90vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				color: white;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.hero::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(
+					45deg,
+					rgba(74, 124, 89, 0.3),
+					rgba(139, 69, 19, 0.3),
+					rgba(74, 124, 89, 0.3)
+				);
+				background-size: 200% 200%;
+				animation: gradientMove 8s ease infinite;
+			}
+
+			.hero-content {
+				max-width: 900px;
+				padding: 20px;
+				position: relative;
+				z-index: 1;
+			}
+
+			.hero-icon {
+				font-size: 80px;
+				animation: float 3s ease-in-out infinite;
+				display: inline-block;
+				margin-bottom: 20px;
+			}
+
+			.hero h1 {
+				font-size: 3.5rem;
+				margin-bottom: 25px;
+				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+				animation: fadeInDown 1s ease-out;
+			}
+
+			.hero p {
+				font-size: 1.4rem;
+				margin-bottom: 40px;
+				line-height: 1.8;
+				animation: fadeInUp 1s ease-out 0.3s backwards;
+			}
+
+			.hero-buttons {
+				display: flex;
+				gap: 25px;
+				justify-content: center;
+				flex-wrap: wrap;
+				animation: fadeInUp 1s ease-out 0.6s backwards;
+			}
+
+			.btn {
+				padding: 18px 45px;
+				font-size: 1.1rem;
+				border: none;
+				border-radius: 50px;
+				cursor: pointer;
+				text-decoration: none;
+				transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				position: relative;
+				overflow: hidden;
+			}
+
+			.btn::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(
+					90deg,
+					transparent,
+					rgba(255, 255, 255, 0.3),
+					transparent
+				);
+				transition: left 0.5s;
+			}
+
+			.btn:hover::before {
+				left: 100%;
+			}
+
+			.btn-primary {
+				background: linear-gradient(135deg, #4a7c59, #3d6b4a);
+				color: white;
+				box-shadow: 0 4px 15px rgba(74, 124, 89, 0.4);
+			}
+
+			.btn-primary:hover {
+				background: linear-gradient(135deg, #5a8c69, #4a7c59);
+				transform: translateY(-5px) scale(1.02);
+				box-shadow: 0 8px 25px rgba(74, 124, 89, 0.5);
+			}
+
+			.btn-secondary {
+				background: rgba(255, 255, 255, 0.1);
+				color: white;
+				border: 2px solid rgba(255, 255, 255, 0.8);
+				backdrop-filter: blur(5px);
+			}
+
+			.btn-secondary:hover {
+				background: rgba(255, 255, 255, 0.25);
+				transform: translateY(-5px) scale(1.02);
+				box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+				border-color: white;
+			}
+
+			/* Scroll indicator */
+			.scroll-indicator {
+				position: absolute;
+				bottom: 30px;
+				left: 50%;
+				transform: translateX(-50%);
+				animation: float 2s ease-in-out infinite;
+			}
+
+			.scroll-indicator span {
+				display: block;
+				width: 30px;
+				height: 50px;
+				border: 2px solid rgba(255, 255, 255, 0.6);
+				border-radius: 25px;
+				position: relative;
+			}
+
+			.scroll-indicator span::before {
+				content: '';
+				position: absolute;
+				top: 8px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 6px;
+				height: 6px;
+				background: white;
+				border-radius: 50%;
+				animation: scrollDown 2s ease-in-out infinite;
+			}
+
 			/* Mission Block */
 			.mission {
 				padding: 100px 20px;
@@ -305,6 +497,156 @@
 				text-transform: uppercase;
 				letter-spacing: 1px;
 			}
+
+			/* Facts Section */
+			.facts {
+				padding: 100px 20px;
+				background: #2d3a2e;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.facts::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a7c59' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+			}
+
+			.facts-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				position: relative;
+				z-index: 1;
+			}
+
+			.facts-header {
+				text-align: center;
+				margin-bottom: 60px;
+			}
+
+			.facts-subtitle {
+				color: #8bc99a;
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+				margin-bottom: 15px;
+				font-weight: 600;
+			}
+
+			.facts-title {
+				font-size: 3rem;
+				color: white;
+				margin-bottom: 20px;
+			}
+
+			.facts-description {
+				color: rgba(255, 255, 255, 0.7);
+				font-size: 1.2rem;
+				max-width: 600px;
+				margin: 0 auto;
+				line-height: 1.8;
+			}
+
+			.facts-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 30px;
+			}
+
+			.fact-card {
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 20px;
+				padding: 40px 30px;
+				text-align: center;
+				backdrop-filter: blur(10px);
+				transition: all 0.4s ease;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.fact-card::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(
+					90deg,
+					transparent,
+					rgba(255, 255, 255, 0.1),
+					transparent
+				);
+				transition: left 0.6s;
+			}
+
+			.fact-card:hover::before {
+				left: 100%;
+			}
+
+			.fact-card:hover {
+				background: rgba(255, 255, 255, 0.1);
+				transform: translateY(-10px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+			}
+
+			.fact-icon {
+				font-size: 60px;
+				margin-bottom: 20px;
+				display: block;
+			}
+
+			.fact-card:hover .fact-icon {
+				animation: float 2s ease-in-out infinite;
+			}
+
+			.fact-number {
+				font-size: 3.5rem;
+				font-weight: 800;
+				color: #8bc99a;
+				margin-bottom: 10px;
+				line-height: 1;
+			}
+
+			.fact-card h3 {
+				font-size: 1.3rem;
+				color: white;
+				margin-bottom: 15px;
+				font-weight: 600;
+			}
+
+			.fact-card p {
+				color: rgba(255, 255, 255, 0.7);
+				line-height: 1.7;
+				font-size: 1rem;
+			}
+
+			.facts-cta {
+				text-align: center;
+				margin-top: 60px;
+			}
+
+			.facts-cta .btn {
+				background: linear-gradient(135deg, #4a7c59, #6b9b7a);
+				color: white;
+				padding: 18px 50px;
+				font-size: 1.1rem;
+				border-radius: 50px;
+				text-decoration: none;
+				display: inline-block;
+				transition: all 0.4s ease;
+				box-shadow: 0 4px 20px rgba(74, 124, 89, 0.4);
+			}
+
+			.facts-cta .btn:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 30px rgba(74, 124, 89, 0.6);
+			}
 		</style>
 	</head>
 	<body>
@@ -329,11 +671,7 @@
 			<div class="hero-content">
 				<div class="hero-icon">🦫</div>
 				<h1>Защитим бобров вместе!</h1>
-				<p>
-					Бобры — уникальные инженеры природы. Они создают экосистемы, очищают
-					воду и поддерживают биоразнообразие. Давайте сохраним этих
-					удивительных животных для будущих поколений!
-				</p>
+				<p>поколений!</p>
 				<div class="hero-buttons">
 					<a
 						href="#"
@@ -360,7 +698,7 @@
 					<p class="mission-subtitle">Что мы делаем</p>
 					<h2 class="mission-title">Наша миссия</h2>
 					<p class="mission-description">
-						Мы посвятили себя защите и сохранению популяции бобров — невероятных
+						Мы посвятили себя защите и популяции бобров — невероятных
 						архитекторов дикой природы
 					</p>
 				</div>
@@ -382,10 +720,7 @@
 							<div class="mission-icon">🏥</div>
 						</div>
 						<h3>Реабилитация животных</h3>
-						<p>
-							Наши центры помогают раненым и осиротевшим бобрам восстановиться и
-							вернуться в дикую природу.
-						</p>
+						<p>природу.</p>
 					</div>
 					<div class="mission-card">
 						<span class="mission-card-number">03</span>
@@ -394,8 +729,8 @@
 						</div>
 						<h3>Просвещение</h3>
 						<p>
-							Мы рассказываем людям о важной роли бобров в экосистеме и учим
-							бережному отношению к природе.
+							Мы рассказываем людям о важной роли в экосистеме и учим бережному
+							отношению к природе.
 						</p>
 					</div>
 				</div>
@@ -412,6 +747,81 @@
 						<div class="stat-number">12</div>
 						<div class="stat-label">Регионов</div>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="facts">
+			<div class="facts-container">
+				<div class="facts-header">
+					<p class="facts-subtitle">Удивительные создания</p>
+					<h2 class="facts-title">Интересные факты о бобрах</h2>
+					<p class="facts-description">
+						Узнайте больше об этих невероятных инженерах природы
+					</p>
+				</div>
+				<div class="facts-grid">
+					<div class="fact-card">
+						<span class="fact-icon">🏗️</span>
+						<div class="fact-number">8м</div>
+						<h3>Высота плотин</h3>
+						<p>
+							Бобры строят плотины высотой до 8 метров, создавая целые
+							экосистемы для других животных
+						</p>
+					</div>
+					<div class="fact-card">
+						<span class="fact-icon">🦷</span>
+						<div class="fact-number">∞</div>
+						<h3>Растущие зубы</h3>
+						<p>
+							Зубы бобров растут всю жизнь и самозатачиваются при грызении
+							деревьев
+						</p>
+					</div>
+					<div class="fact-card">
+						<span class="fact-icon">🏊</span>
+						<div class="fact-number">15мин</div>
+						<h3>Под водой</h3>
+						<p>
+							Бобры могут задерживать дыхание до 15 минут и плавать со скоростью
+							8 км/ч
+						</p>
+					</div>
+					<div class="fact-card">
+						<span class="fact-icon">🏠</span>
+						<div class="fact-number">850км</div>
+						<h3>Самая длинная плотина</h3>
+						<p>
+							В Канаде обнаружена плотина длиной 850 метров — видна из космоса!
+						</p>
+					</div>
+					<div class="fact-card">
+						<span class="fact-icon">👨‍👩‍👧‍👦</span>
+						<div class="fact-number">2-4</div>
+						<h3>Детёныши</h3>
+						<p>
+							Бобры — моногамны и заботливые родители, в семье обычно 2-4
+							детёныша
+						</p>
+					</div>
+					<div class="fact-card">
+						<span class="fact-icon">🌳</span>
+						<div class="fact-number">200+</div>
+						<h3>Деревьев в год</h3>
+						<p>
+							Одна семья бобров может повалить более 200 деревьев за год для
+							строительства
+						</p>
+					</div>
+				</div>
+				<div class="facts-cta">
+					<a
+						href="#"
+						class="btn"
+					>
+						Узнать ещё больше
+					</a>
 				</div>
 			</div>
 		</section>
