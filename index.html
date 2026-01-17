@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 	<head>
 		<meta charset="UTF-8" />
@@ -66,6 +66,30 @@
 
 			nav a:hover {
 				background: rgba(255, 255, 255, 0.2);
+			}
+
+			.header-search {
+				flex: 1;
+				text-align: center;
+			}
+
+			.search-input {
+				width: 100%;
+				max-width: 400px;
+				padding: 10px 15px;
+				font-size: 16px;
+				border: none;
+				border-radius: 5px;
+				outline: none;
+				transition: box-shadow 0.3s;
+			}
+
+			.search-input::placeholder {
+				color: rgba(255, 255, 255, 0.7);
+			}
+
+			.search-input:focus {
+				box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 			}
 
 			/* Animations */
@@ -146,7 +170,8 @@
 
 			/* Hero Section */
 			.hero {
-				background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+				background:
+					linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 					url('https://images.unsplash.com/photo-1579168730073-01c458d0b8b7?w=1920')
 						center/cover;
 				min-height: 90vh;
@@ -513,7 +538,10 @@
 				left: 0;
 				right: 0;
 				bottom: 0;
-				background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a7c59' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+				background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%238bc99a' fill-opacity='0.13' cx='30' cy='30' r='30'/%3E%3Cpath d='M30 15a15 15 0 1 1 0 30 15 15 0 0 1 0-30z' fill='%234a7c59' fill-opacity='0.07'/%3E%3C/g%3E%3C/svg%3E");
+				background-size: 60px 60px;
+				opacity: 0.18;
+				pointer-events: none;
 			}
 
 			.facts-container {
@@ -970,6 +998,13 @@
 						<li><a href="#">Контакты</a></li>
 					</ul>
 				</nav>
+				<div class="header-search">
+					<input
+						type="text"
+						class="search-input"
+						placeholder="Поиск по сайту..."
+					/>
+				</div>
 			</div>
 		</header>
 
@@ -1038,6 +1073,23 @@
 						<p>
 							Поддержите законодательные инициативы по защите бобров — подпишите
 							онлайн-петицию и расскажите о ней другим.
+						</p>
+					</div>
+					<div class="start-card">
+						<div class="start-icon">🎓</div>
+						<h3>Проведите урок</h3>
+						<p>
+							Организуйте образовательное занятие или лекцию о бобрах в школе,
+							университете или онлайн — распространяйте знания и вдохновляйте
+							других!
+						</p>
+					</div>
+					<div class="start-card">
+						<div class="start-icon">🦫</div>
+						<h3>Примите участие в акции</h3>
+						<p>
+							Участвуйте в специальных мероприятиях и флешмобах, посвящённых
+							защите бобров — вместе мы можем больше!
 						</p>
 					</div>
 				</div>
@@ -1315,6 +1367,23 @@
 						<p>
 							Поддержите законодательные инициативы по защите бобров — подпишите
 							онлайн-петицию и расскажите о ней другим.
+						</p>
+					</div>
+					<div class="start-card">
+						<div class="start-icon">🎓</div>
+						<h3>Проведите урок</h3>
+						<p>
+							Организуйте образовательное занятие или лекцию о бобрах в школе,
+							университете или онлайн — распространяйте знания и вдохновляйте
+							других!
+						</p>
+					</div>
+					<div class="start-card">
+						<div class="start-icon">🦫</div>
+						<h3>Примите участие в акции</h3>
+						<p>
+							Участвуйте в специальных мероприятиях и флешмобах, посвящённых
+							защите бобров — вместе мы можем больше!
 						</p>
 					</div>
 				</div>
